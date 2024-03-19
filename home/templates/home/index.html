@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="" method="get" novalidate class="col-md-2">
+        {{ form.as_p }}
+        <input type="submit" value="Search" class="btn btn-primary">
+    </form>
+    <h2 class="text-center"><b>StackOverFlow</b></h2>
+    <hr>
+
+    {% for post in posts %}
+        <a href="{{ post.get_absolute_url }}" class="card-body"> {{ post.title }} </a>
+        <p>{{ post.body|truncatewords:10 }}</p>
+        <center>
+            <hr width="90%">
+        </center>
+    {% empty %}
+        <a href="{% url 'home:post_create' %}"> Create a Post </a>
+    {% endfor %}
+{% endblock %}
