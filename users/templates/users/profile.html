@@ -2,8 +2,38 @@
 
 
 {% block content %}
+    <style>
+        .info {
+            font-size: 20px;
+            margin-outside: 20px;
+        }
 
-    <h2 class="text-center">{{ user.username }}</h2><br>
+        .info-text {
+            margin-left: 20px;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h2 class="card-title">{{ user.username }}</h2>
+    <div class="info card">
+        <p class="info-text card-body">email: {{ user.email }}</p>
+        <p class="info-text card-body">biography: <br>{{ user.profile.biography }}</p>
+        <p class="info-text text-center card-body">followers: {{ user.following.count }} -
+            following: {{ user.followers.count }}</p>
+    </div>
+    <br>
     {% if request.user.is_authenticated and request.user.id == user.id %}
         <a href="{% url 'home:post_create' %}" class="btn btn-info"> Create Post </a>
         <a href="{% url 'users:user_password_reset' %}" class="btn btn-secondary"> Reset Password </a>

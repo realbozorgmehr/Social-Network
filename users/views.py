@@ -22,7 +22,8 @@ class UserProfileView(LoginRequiredMixin, View):
         relations = Relations.objects.filter(from_user=request.user, to_user=user)
         if relations.exists():
             is_following = True
-        return render(request, 'users/profile.html', {'user': user, 'posts': posts, 'is_following': is_following})
+        return render(request, 'users/profile.html', {'user': user, 'posts': posts,
+                                                      'is_following': is_following})
 
 
 class UserRegisterView(View):
