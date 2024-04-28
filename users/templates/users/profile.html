@@ -13,19 +13,6 @@
         }
     </style>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <h2 class="card-title">{{ user.username }}</h2>
     <div class="info card">
         <p class="info-text card-body">email: {{ user.email }}</p>
@@ -46,7 +33,6 @@
         <a href="{% url 'users:user_unfollow' user.id %}" class="btn btn-secondary"> Unfollow </a>
     {% endif %}
 
-
     <hr>
     <h4 class="text-center"> User Posts </h4>
 
@@ -56,7 +42,7 @@
             <hr width="90%">
         </center>
     {% empty %}
-        <a href="{% url 'home:post_create' %}"> Create a Post </a>
+        <a href="{% url 'home:post_create' %}" class="btn btn-primary"> Create first Post </a>
     {% endfor %}
 
 {% endblock %}
